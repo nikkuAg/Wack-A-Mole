@@ -85,8 +85,8 @@
     this.parentNode.firstElementChild.classList.add('hammer')
     this.parentNode.firstElementChild.style.zIndex = "3"
     score++;
+    this.parentNode.classList.remove('up')
     setTimeout(()=> {
-      this.parentNode.classList.remove('up')
       this.parentNode.classList.remove('click')
       this.parentNode.firstElementChild.classList.remove('hammer')
       this.parentNode.firstElementChild.style.zIndex = "-3"
