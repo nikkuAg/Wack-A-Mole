@@ -13,21 +13,27 @@
 
   <div class="game">
     <div class="hole hole1">
+      <div></div>
       <div class="mole"></div>
     </div>
     <div id="1" class="hole hole2">
+      <div></div>
       <div class="mole"></div>
     </div>
     <div class="hole hole3">
+      <div></div>
       <div class="mole"></div>
     </div>
     <div class="hole hole4">
+      <div></div>
       <div class="mole"></div>
     </div>
     <div class="hole hole5">
+      <div></div>
       <div class="mole"></div>
     </div>
     <div class="hole hole6">
+      <div></div>
       <div class="mole"></div>
     </div>
   </div>
@@ -75,8 +81,16 @@
 
   function bonk(e) {
     if(!e.isTrusted) return; // cheater!
+    this.parentNode.classList.add('click');
+    this.parentNode.firstElementChild.classList.add('hammer')
+    this.parentNode.firstElementChild.style.zIndex = "3"
     score++;
-    this.parentNode.classList.remove('up');
+    setTimeout(()=> {
+      this.parentNode.classList.remove('up')
+      this.parentNode.classList.remove('click')
+      this.parentNode.firstElementChild.classList.remove('hammer')
+      this.parentNode.firstElementChild.style.zIndex = "-3"
+    }, 400)
     scoreBoard.textContent = score;
   }
 
